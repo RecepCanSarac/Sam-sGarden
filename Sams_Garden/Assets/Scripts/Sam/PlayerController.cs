@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -25,12 +22,9 @@ public class PlayerController : MonoBehaviour
         _animator.SetFloat("Horizontal",movement.x);
         _animator.SetFloat("Vertical",movement.y);
         _animator.SetFloat("speed", movement.sqrMagnitude);
-
-
     }
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * _speed * Time.fixedDeltaTime);
     }
-
 }
