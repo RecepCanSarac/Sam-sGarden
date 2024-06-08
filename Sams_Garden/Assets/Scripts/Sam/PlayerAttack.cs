@@ -5,7 +5,6 @@ public class PlayerAttack : MonoBehaviour
 {
     public SOPlayer player;
     public LayerMask mask;
-    public int index;
     private float nextFireTime;
     private void Update()
     {
@@ -13,35 +12,35 @@ public class PlayerAttack : MonoBehaviour
         {
             Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, player.Radius, mask);
 
-        if (hit.Length > 0)
-        {
-            List<Collider2D> closestEnemies = new List<Collider2D>();
-
-            foreach (var item in hit)
+            if (hit.Length > 0)
             {
-                closestEnemies.Add(item);
-            }
+                List<Collider2D> closestEnemies = new List<Collider2D>();
 
-            closestEnemies.Sort((a, b) => Vector2.Distance(transform.position, a.transform.position).CompareTo(Vector2.Distance(transform.position, b.transform.position)));
+                foreach (var item in hit)
+                {
+                    closestEnemies.Add(item);
+                }
 
-            for (int i = 0; i < index && i < closestEnemies.Count; i++)
-            {
-                FireAtTarget(closestEnemies[i]);
+                closestEnemies.Sort((a, b) => Vector2.Distance(transform.position, a.transform.position).CompareTo(Vector2.Distance(transform.position, b.transform.position)));
+
+                for (int i = 0; i < player.index && i < closestEnemies.Count; i++)
+                {
+                    FireAtTarget(closestEnemies[i]);
+                }
             }
-        }
             nextFireTime = Time.time + 1f / player.fireRate;
         }
     }
 
     private void FireAtTarget(Collider2D target)
     {
-        
+
         Debug.Log("Ateþ ediliyor: " + target.name);
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position,4);
+        Gizmos.DrawWireSphere(transform.position, 4);
     }
 }

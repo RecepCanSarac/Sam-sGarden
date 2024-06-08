@@ -10,4 +10,8 @@ public class SOPlayer : ScriptableObject
     public float Speed;
     public float fireRate;
     public float Radius;
+
+
+    [Header("Sam Number of Attack")]
+    public int index;
 }
