@@ -8,4 +8,6 @@ public class SOPlayer : ScriptableObject
     [Header("Sam Attributes")]
     public float Health;
     public float Speed;
+    public float fireRate;
+    public float Radius;
 }
