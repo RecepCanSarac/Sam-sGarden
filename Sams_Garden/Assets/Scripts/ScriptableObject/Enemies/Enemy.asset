@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c907c9fd68c5b441a97e87df8088877, type: 3}
-  m_Name: Sam
+  m_Script: {fileID: 11500000, guid: 80651d5bec897744383504463d4bb625, type: 3}
+  m_Name: Enemy
   m_EditorClassIdentifier: 
-  Health: 150
-  Speed: 3
-  fireRate: 1
-  Radius: 4
-  index: 2
+  health: 20
+  damage: 5
+  speed: 3
