@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Sam
   m_EditorClassIdentifier: 
   Health: 150
-  Speed: 350
+  Speed: 3
