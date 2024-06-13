@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class BulletScripts : MonoBehaviour
 {
+    public SOBullet bullet;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            EnemyManager enemy = collision.gameObject.GetComponent<EnemyManager>();
+            enemy.TakeDamage(bullet.Damage);
             Destroy(gameObject);
         }
     }
