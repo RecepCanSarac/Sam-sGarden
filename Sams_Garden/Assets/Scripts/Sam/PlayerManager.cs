@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour
     {
         currentHealth = player.Health;
     }
-
+    #region TakeDamage
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
@@ -20,4 +20,10 @@ public class PlayerManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+    #endregion
+
+
+
+
+
 }
