@@ -1,10 +1,24 @@
+using System;
+using Unity.Entities;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
     public SOPlayer player;
+    public float currentXP;
 
     public float currentHealth { get; private set; }
+
+    private void OnEnable()
+    {
+        Experiance.experiance += XPAdded;
+    }
+    private void OnDisable()
+    {
+        Experiance.experiance -= XPAdded;
+    }
+
     void Start()
     {
         currentHealth = player.Health;
@@ -23,7 +37,11 @@ public class PlayerManager : MonoBehaviour
     #endregion
 
 
-
+    public void XPAdded(float x)
+    {
+        currentXP += x;
+        Debug.Log("CALIÞTI");
+    }
 
 
 }
