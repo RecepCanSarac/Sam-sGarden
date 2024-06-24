@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    public delegate void TakeDamage(float damage);
+    public static event TakeDamage damage;
+
+
+
+
+
     public SOEnemy enemy;
     public float curretHealth { get; private set; }
     private float fireRate = 1.0f;
@@ -11,7 +18,7 @@ public class EnemyManager : MonoBehaviour
     {
         curretHealth = enemy.health;
     }
-    public void TakeDamage(float damage)
+    public void TakeDamager(float damage)
     {
         curretHealth -= damage;
 
@@ -25,11 +32,10 @@ public class EnemyManager : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerManager player = collision.gameObject.GetComponent<PlayerManager>();
             if (Time.time > nextTimeFireRate)
             {
                 nextTimeFireRate = Time.time + 1 / fireRate;
-                player.TakeDamage(enemy.damage);
+                damage?.Invoke(enemy.damage);
             }
         }
     }

@@ -13,10 +13,12 @@ public class PlayerManager : MonoBehaviour
     private void OnEnable()
     {
         Experiance.experiance += XPAdded;
+        EnemyManager.damage += TakeDamage;
     }
     private void OnDisable()
     {
         Experiance.experiance -= XPAdded;
+        EnemyManager.damage -= TakeDamage;
     }
 
     void Start()
@@ -40,7 +42,6 @@ public class PlayerManager : MonoBehaviour
     public void XPAdded(float x)
     {
         currentXP += x;
-        Debug.Log("CALIÞTI");
     }
 
 

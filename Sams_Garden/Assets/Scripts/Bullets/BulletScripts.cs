@@ -10,7 +10,7 @@ public class BulletScripts : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             EnemyManager enemy = collision.gameObject.GetComponent<EnemyManager>();
-            enemy.TakeDamage(bullet.Damage);
+            enemy.TakeDamager(bullet.Damage);
             Destroy(gameObject);
         }
     }
