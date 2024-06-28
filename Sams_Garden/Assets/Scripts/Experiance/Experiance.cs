@@ -12,7 +12,7 @@ public class Experiance : MonoBehaviour
     public float radius;
     public LayerMask mask;
 
-
+    public float exp;
     private void Update()
     {
         Collider2D hit = Physics2D.OverlapCircle(transform.position, radius, mask);
@@ -29,7 +29,7 @@ public class Experiance : MonoBehaviour
         {
             if (experiance != null)
             {
-                experiance?.Invoke(250);
+                experiance?.Invoke(exp);
                 Destroy(this.gameObject);
             }
         }

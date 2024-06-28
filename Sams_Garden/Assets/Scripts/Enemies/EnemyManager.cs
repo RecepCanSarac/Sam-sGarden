@@ -14,6 +14,8 @@ public class EnemyManager : MonoBehaviour
     private float fireRate = 1.0f;
     private float nextTimeFireRate = 0.0f;
 
+    public GameObject Item;
+
     private void Start()
     {
         curretHealth = enemy.health;
@@ -24,6 +26,8 @@ public class EnemyManager : MonoBehaviour
 
         if (curretHealth <= 0)
         {
+            GameObject item = Instantiate(Item, transform.position, Quaternion.identity);
+            item.GetComponent<Experiance>().exp = enemy.XP;
             Destroy(this.gameObject);
         }
     }
